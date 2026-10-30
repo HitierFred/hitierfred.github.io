@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frédéric Hitier — 30 ans de régie · Automatisation & IA</title>
+  <meta name="description" content="Portfolio de Frédéric Hitier : 30 ans de régie image, son et lumière, désormais au service de l'automatisation, du web et de l'IA." />
+  <meta property="og:title" content="Frédéric Hitier — 30 ans de régie. Désormais, j'automatise." />
+  <meta property="og:description" content="Régie image, son, lumière · Web · Automatisation n8n · IA. Réalisations, parcours et contact." />
+  <meta property="og:image" content="https://hitierfred.github.io/images/vaugrenelle.jpg" />
+  <meta name="theme-color" content="#fbf8f3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff3d7f'/%3E%3Cstop offset='.5' stop-color='%23ffb020'/%3E%3Cstop offset='1' stop-color='%232f6bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-style='italic' text-anchor='middle' fill='white'%3EFH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:      #fbf8f3;
+      --paper-2:    #f4efe6;
+      --card:       #ffffff;
+      --ink:        #15131c;
+      --ink-2:      #4a4655;
+      --ink-3:      #8a8594;
+      --line:       rgba(21,19,28,.09);
+      --line-2:     rgba(21,19,28,.16);
+
+      /* Les « gélatines » de projecteur */
+      --magenta:    #ff3d7f;
+      --amber:      #ffb020;
+      --blue:       #2f6bff;
+      --cyan:       #13c2c2;
+      --violet:     #7c4dff;
+
+      --grad:       linear-gradient(100deg, var(--magenta) 0%, var(--amber) 45%, var(--blue) 100%);
+      --grad-soft:  linear-gradient(135deg, #ffe3ec 0%, #fff1d6 50%, #e1eaff 100%);
+
+      --serif:      'Instrument Serif', Georgia, 'Times New Roman', serif;
+      --sans:       'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+      --radius:     28px;
+      --shadow:     0 1px 2px rgba(21,19,28,.04), 0 12px 32px -12px rgba(21,19,28,.14);
+      --shadow-lg:  0 2px 4px rgba(21,19,28,.04), 0 40px 80px -24px rgba(21,19,28,.28);
+      --ease:       cubic-bezier(.2,.7,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      background: var(--paper);
+      color: var(--ink-2);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    strong { color: var(--ink); font-weight: 700; }
+    ::selection { background: var(--amber); color: var(--ink); }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
+
+    .container { width: min(1200px, 100% - 40px); margin-inline: auto; }
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Grain léger, pour la matière ─────────────────────────── */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── Navigation ────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 50;
+      width: min(1200px, 100% - 24px);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 10px 10px 10px 20px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 999px;
+      box-shadow: 0 8px 30px -12px rgba(21,19,28,.18);
+      transition: box-shadow .3s;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--ink); letter-spacing: -.01em; white-space: nowrap; }
+    .nav-logo .mark {
+      position: relative; overflow: hidden; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--grad); color: #fff; font-family: var(--serif); font-style: italic; font-size: 17px; font-weight: 400;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px rgba(255,61,127,.55);
+    }
+    .nav-logo .mark img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--ink-2); transition: background .2s, color .2s; }
+    .nav-links a:hover { background: var(--paper-2); color: var(--ink); }
+    .nav-cta {
+      padding: 10px 18px; border-radius: 999px; background: var(--ink); color: #fff;
+      font-size: 14px; font-weight: 700; white-space: nowrap; transition: transform .2s var(--ease);
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 140px 0 90px; overflow: hidden; isolation: isolate; }
+
+    /* Faisceaux de projecteurs : trois gélatines qui balaient la scène */
+    .beams { position: absolute; inset: -20% -10% 0; z-index: -2; pointer-events: none; filter: blur(24px); }
+    .beam {
+      position: absolute; top: -10%; width: 70vmax; height: 120vmax; transform-origin: 50% 0;
+      opacity: .55; mix-blend-mode: multiply;
+      clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+    }
+    .beam.b1 { left: -20%; background: linear-gradient(180deg, var(--magenta), transparent 75%); animation: sweep1 14s ease-in-out infinite alternate; }
+    .beam.b2 { left: 15%;  background: linear-gradient(180deg, var(--amber),   transparent 75%); animation: sweep2 17s ease-in-out infinite alternate; opacity: .5; }
+    .beam.b3 { left: 45%;  background: linear-gradient(180deg, var(--blue),    transparent 75%); animation: sweep3 15s ease-in-out infinite alternate; opacity: .42; }
+    @keyframes sweep1 { from { transform: rotate(-24deg); } to { transform: rotate(6deg); } }
+    @keyframes sweep2 { from { transform: rotate(14deg); }  to { transform: rotate(-12deg); } }
+    @keyframes sweep3 { from { transform: rotate(-4deg); }  to { transform: rotate(26deg); } }
+    .hero::after { /* fondu vers le papier en bas de scène */
+      content: ""; position: absolute; inset: auto 0 0; height: 40%; z-index: -1;
+      background: linear-gradient(transparent, var(--paper));
+    }
+    .spot { /* la poursuite qui suit la souris */
+      position: absolute; z-index: -1; width: 520px; height: 520px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 65%);
+      transform: translate(-50%, -50%); left: 70%; top: 40%; transition: opacity .4s;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.8); border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: .01em;
+    }
+    .eyebrow .live { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #1fbf6a; }
+    .eyebrow .live::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #1fbf6a; animation: ping 1.8s var(--ease) infinite; }
+    @keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+
+    .hero h1 {
+      margin: 28px 0 26px;
+      font-family: var(--serif); font-weight: 400; color: var(--ink);
+      font-size: clamp(3.4rem, 10.5vw, 9.6rem); line-height: .9; letter-spacing: -.035em;
+    }
+    .hero h1 .l2 { display: block; font-style: italic; padding-bottom: .08em; }
+    .hero-sub { max-width: 640px; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--ink-2); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s;
+    }
+    .btn svg { width: 18px; height: 18px; transition: transform .25s var(--ease); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 14px 30px -12px rgba(21,19,28,.5); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(21,19,28,.55); }
+    .btn-ghost { background: rgba(255,255,255,.85); color: var(--ink); border: 1px solid var(--line-2); }
+    .btn-ghost:hover { transform: translateY(-2px); background: #fff; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; max-width: 900px;
+      background: rgba(255,255,255,.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.95); border-radius: 24px; box-shadow: var(--shadow); }
+    .stat { padding: 22px 24px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat-num { font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; color: var(--ink); letter-spacing: -.02em; }
+    .stat-num small { font-size: .5em; color: var(--ink-3); margin-left: 2px; }
+    .stat-label { margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-3); line-height: 1.35; }
+
+    /* ── Bandeau défilant ─────────────────────────────────────── */
+    .marquee { position: relative; padding: 26px 0; border-block: 1px solid var(--line); background: var(--card); overflow: hidden; }
+    .marquee::before, .marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; }
+    .marquee::before { left: 0;  background: linear-gradient(90deg, var(--card), transparent); }
+    .marquee::after  { right: 0; background: linear-gradient(-90deg, var(--card), transparent); }
+    .marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 18px; padding-right: 18px; font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--ink); white-space: nowrap; }
+    .marquee-item:nth-child(3n+2) { font-style: italic; }
+    .marquee-item::after { content: "✦"; font-family: var(--sans); font-size: .55em; }
+    .marquee-item:nth-child(3n+1)::after { color: var(--magenta); }
+    .marquee-item:nth-child(3n+2)::after { color: var(--amber); }
+    .marquee-item:nth-child(3n)::after   { color: var(--blue); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ── Sections ──────────────────────────────────────────────── */
+    section.block { padding: clamp(90px, 12vw, 150px) 0; position: relative; }
+    .s-head { display: grid; grid-template-columns: auto 1fr; gap: 12px 28px; align-items: end; margin-bottom: clamp(44px, 6vw, 72px); }
+    .s-kicker { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+    .s-kicker::before { content: ""; width: 28px; height: 3px; border-radius: 3px; background: var(--grad); }
+    .s-title { font-family: var(--serif); font-weight: 400; color: var(--ink); font-size: clamp(2.6rem, 6vw, 5rem); line-height: .98; letter-spacing: -.03em; max-width: 14ch; }
+    .s-title em { font-style: italic; }
+    .s-intro { justify-self: end; max-width: 440px; font-size: 1.05rem; padding-bottom: 8px; }
+
+    /* ── Réalisations ─────────────────────────────────────────── */
+    .work { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+
+    .feature {
+      grid-column: 1 / -1; position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1.25fr; gap: 0;
+      background: var(--card); border-radius: 36px; box-shadow: var(--shadow-lg); border: 1px solid var(--line);
+    }
+    .feature-body { padding: clamp(32px, 4.5vw, 60px); display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 1; }
+    .tagline { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #e8efff; color: var(--blue); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .feature h3 { font-family: var(--serif); font-weight: 400; color: var(--ink); font-size: clamp(2.4rem, 4.6vw, 4rem); line-height: .95; letter-spacing: -.03em; }
+    .feature h3 em { font-style: italic; }
+    .feature p { font-size: 1.02rem; }
+
+    .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .metric { padding: 14px 16px; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); }
+    .metric b { display: block; font-family: var(--serif); font-weight: 400; font-size: 2rem; line-height: 1; color: var(--ink); letter-spacing: -.02em; }
+    .metric span { font-size: 12.5px; font-weight: 600; color: var(--ink-3); line-height: 1.3; display: block; margin-top: 4px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13px; font-weight: 600; color: var(--ink-2); background: #fff; }
+    .card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
+    .card-actions .btn { padding: 13px 20px; font-size: 14px; }
+
+    .feature-visual {
+      position: relative; min-height: 520px; overflow: hidden;
+      background: radial-gradient(120% 90% at 80% 10%, #ffd9e6 0%, transparent 55%),
+                  radial-gradient(90% 80% at 10% 90%, #d9e4ff 0%, transparent 60%),
+                  linear-gradient(135deg, #fff4dc, #fde7ef);
+      perspective: 1400px;
+    }
+    .browser {
+      position: absolute; left: 9%; top: 12%; width: 108%;
+      border-radius: 16px; overflow: hidden; background: #fff;
+      box-shadow: 0 50px 100px -30px rgba(21,19,28,.45), 0 0 0 1px rgba(21,19,28,.06);
+      transform: rotateY(-14deg) rotateX(6deg); transform-origin: left center;
+      transition: transform .8s var(--ease);
+    }
+    .feature:hover .browser { transform: rotateY(-6deg) rotateX(2deg) translateY(-6px); }
+    .browser-bar { display: flex; align-items: center; gap: 7px; padding: 12px 14px; background: #f3f1ee; border-bottom: 1px solid var(--line); }
+    .browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+    .browser-bar i:nth-child(2) { background: #febc2e; }
+    .browser-bar i:nth-child(3) { background: #28c840; }
+    .browser-bar .url { margin-left: 12px; flex: 1; max-width: 340px; padding: 5px 12px; border-radius: 8px; background: #fff; font-size: 12px; font-weight: 600; color: var(--ink-3); }
+    .phone {
+      position: absolute; right: 7%; bottom: -6%; width: 30%; max-width: 210px; aspect-ratio: 390 / 844;
+      border-radius: 34px; padding: 8px; background: #15131c;
+      box-shadow: 0 40px 80px -20px rgba(21,19,28,.55);
+      transform: rotate(6deg) translateY(0); transition: transform .8s var(--ease);
+    }
+    .feature:hover .phone { transform: rotate(3deg) translateY(-18px); }
+    .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 27px; }
+
+    .work-card {
+      grid-column: span 6; position: relative; display: flex; flex-direction: column; overflow: hidden;
+      background: var(--card); border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+    .work-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .work-thumb { position: relative; aspect-ratio: 16 / 9.5; overflow: hidden; }
+    .work-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.2s var(--ease); }
+    .work-card:hover .work-thumb img { transform: scale(1.05); }
+    .work-body { padding: 28px 30px 30px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+    .work-body h3 { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--ink); letter-spacing: -.02em; }
+    .work-body p { font-size: .98rem; }
+    .work-kicker { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+    .code-thumb {
+      display: grid; place-items: center; height: 100%;
+      background: radial-gradient(80% 80% at 20% 20%, #ffe0ea, transparent 60%),
+                  radial-gradient(80% 80% at 90% 80%, #dce6ff, transparent 60%), #fff7e8;
+    }
+    .repo-stack { display: grid; gap: 10px; width: min(78%, 420px); }
+    .repo {
+      display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px;
+      background: rgba(255,255,255,.9); border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-size: 14px; font-weight: 700; color: var(--ink); transition: transform .5s var(--ease);
+    }
+    .repo:nth-child(2) { margin-left: 8%; }
+    .repo:nth-child(3) { margin-left: 16%; }
+    .work-card:hover .repo:nth-child(1) { transform: translateX(-6px); }
+    .work-card:hover .repo:nth-child(3) { transform: translateX(6px); }
+    .repo .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+    .repo small { margin-left: auto; font-weight: 600; color: var(--ink-3); font-size: 12px; }
+
+    /* ── Parcours : trois régies ──────────────────────────────── */
+    .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .gel {
+      position: relative; overflow: hidden; padding: 34px 30px 30px; border-radius: var(--radius);
+      background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+    .gel:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .gel::before { /* halo de couleur, comme un projecteur sur la carte */
+      content: ""; position: absolute; top: -120px; right: -80px; width: 280px; height: 280px; border-radius: 50%;
+      background: var(--c); opacity: .22; filter: blur(30px); transition: opacity .5s, transform .8s var(--ease);
+    }
+    .gel:hover::before { opacity: .38; transform: scale(1.2); }
+    .gel-icon {
+      position: relative; width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center; margin-bottom: 26px;
+      background: linear-gradient(140deg, var(--c), var(--c2)); color: #fff;
+      box-shadow: 0 14px 28px -12px var(--c), inset 0 1px 0 rgba(255,255,255,.45);
+      transition: transform .6s var(--ease);
+    }
+    .gel:hover .gel-icon { transform: rotate(-6deg) scale(1.06); }
+    .gel-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .gel-icon svg .fill { fill: currentColor; stroke: none; }
+    .gel-sub { position: relative; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--c-ink); }
+    .gel h3 { position: relative; font-family: var(--serif); font-weight: 400; font-size: 2rem; line-height: 1.05; color: var(--ink); margin: 6px 0 14px; letter-spacing: -.02em; }
+    .gel p { position: relative; font-size: .97rem; margin-bottom: 20px; }
+    .gel .chips { position: relative; }
+    .gel.image { --c: #0fb5b5; --c2: #4fd9c4; --c-ink: #078e8e; }
+    .gel.son   { --c: #ff9f1a; --c2: #ffcf4a; --c-ink: #b86e00; }
+    .gel.lum   { --c: #ff3d7f; --c2: #ff8a5c; --c-ink: #d61f5f; }
+
+    /* ── Pivot ─────────────────────────────────────────────────── */
+    .pivot { background: var(--card); border-block: 1px solid var(--line); overflow: hidden; }
+    .pivot-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 6vw, 90px); align-items: start; }
+    .quote {
+      position: relative; font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.12; color: var(--ink); letter-spacing: -.02em;
+      margin: 8px 0 36px; padding-left: 28px;
+    }
+    .quote::before { content: ""; position: absolute; left: 0; top: .2em; bottom: .2em; width: 4px; border-radius: 4px; background: var(--grad); }
+    .quote em { font-style: italic; }
+    .pivot-text p + p { margin-top: 18px; }
+    .skills { display: grid; gap: 18px; }
+    .skill-card { padding: 28px; border-radius: 24px; background: var(--paper); border: 1px solid var(--line); }
+    .skill-card h4 { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; }
+    .skill-card h4::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 20%, transparent); }
+
+    /* ── Certifications ───────────────────────────────────────── */
+    .certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 16px; }
+    .cert {
+      display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px;
+      background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    .cert:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .cert-mark { flex: none; width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; background: var(--bg, var(--paper)); }
+    .cert-name { font-weight: 800; color: var(--ink); font-size: .98rem; line-height: 1.25; }
+    .cert-issuer { font-size: 13px; color: var(--ink-3); font-weight: 600; }
+    .badge { margin-left: auto; flex: none; padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+    .badge.done { background: #e3f8ec; color: #128a4a; }
+    .badge.wip  { background: #fff3d6; color: #a86400; }
+
+    /* ── Pour qui ─────────────────────────────────────────────── */
+    .who { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .who-card {
+      position: relative; overflow: hidden; padding: 30px 26px 28px; border-radius: 24px;
+      background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+    .who-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .who-card::before { /* halo de la couleur de l'icône */
+      content: ""; position: absolute; top: -90px; right: -70px; width: 200px; height: 200px; border-radius: 50%;
+      background: var(--c1); opacity: .16; filter: blur(28px); transition: opacity .5s, transform .8s var(--ease);
+    }
+    .who-card:hover::before { opacity: .3; transform: scale(1.25); }
+    .who-icon {
+      position: relative; width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center; margin-bottom: 24px;
+      background: linear-gradient(140deg, var(--c1), var(--c2)); color: #fff;
+      box-shadow: 0 14px 28px -12px var(--c1), inset 0 1px 0 rgba(255,255,255,.45);
+      transition: transform .6s var(--ease);
+    }
+    .who-card:hover .who-icon { transform: rotate(-6deg) scale(1.06); }
+    .who-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .who-card.c-mag  { --c1: #ff3d7f; --c2: #ff8a5c; }
+    .who-card.c-amb  { --c1: #ff9f1a; --c2: #ffcf4a; }
+    .who-card.c-cyan { --c1: #0fb5b5; --c2: #4fd9c4; }
+    .who-card.c-blue { --c1: #2f6bff; --c2: #7c4dff; }
+    .who-card h3 { position: relative; font-family: var(--serif); font-weight: 400; font-size: 1.8rem; color: var(--ink); margin-bottom: 10px; line-height: 1; }
+    .who-card p { position: relative; font-size: .94rem; }
+
+    /* ── Feuille de route ─────────────────────────────────────── */
+    .road { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .road::before { content: ""; position: absolute; top: 34px; left: 34px; right: 34px; height: 3px; border-radius: 3px; background: var(--grad); opacity: .9; }
+    .step { position: relative; }
+    .step-node {
+      position: relative; width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 26px;
+      background: #fff; border: 3px solid var(--c); color: var(--ink); font-family: var(--serif); font-size: 1.7rem; box-shadow: 0 0 0 8px var(--paper);
+    }
+    .step:nth-child(1) { --c: var(--magenta); }
+    .step:nth-child(2) { --c: var(--amber); }
+    .step:nth-child(3) { --c: var(--blue); }
+    .step-tag { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+    .step h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1; color: var(--ink); margin: 8px 0 12px; letter-spacing: -.02em; }
+    .step p { font-size: .97rem; max-width: 32ch; }
+
+    /* ── Contact ──────────────────────────────────────────────── */
+    .cta {
+      position: relative; overflow: hidden; isolation: isolate; text-align: center;
+      padding: clamp(60px, 9vw, 120px) clamp(24px, 5vw, 80px); border-radius: 44px; color: var(--ink);
+      background: var(--grad-soft); border: 1px solid rgba(255,255,255,.9); box-shadow: var(--shadow-lg);
+    }
+    .cta .blob { position: absolute; z-index: -1; width: 420px; height: 420px; border-radius: 50%; filter: blur(60px); opacity: .55; animation: float 12s ease-in-out infinite alternate; }
+    .cta .blob.a { background: var(--magenta); top: -180px; left: -100px; }
+    .cta .blob.b { background: var(--amber);   bottom: -200px; left: 35%; animation-delay: -4s; }
+    .cta .blob.c { background: var(--blue);    top: -160px; right: -120px; animation-delay: -8s; }
+    @keyframes float { to { transform: translate(40px, 30px) scale(1.1); } }
+    .cta h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8vw, 7rem); line-height: .92; letter-spacing: -.035em; margin: 22px 0 22px; }
+    .cta h2 em { font-style: italic; }
+    .cta p { max-width: 560px; margin: 0 auto 36px; font-size: 1.1rem; color: var(--ink-2); }
+    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .btn-li { background: #0a66c2; color: #fff; box-shadow: 0 16px 34px -14px rgba(10,102,194,.7); }
+    .btn-li:hover { transform: translateY(-2px); }
+
+    footer { padding: 40px 0 50px; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--ink-3); font-weight: 600; }
+    .foot a:hover { color: var(--ink); }
+
+    /* ── Apparitions au défilement ────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+    .hero .reveal { transform: translateY(24px); }
+
+    /* ── Écrans plus petits ───────────────────────────────────── */
+    @media (max-width: 1020px) {
+      .nav-links { display: none; }
+      .feature { grid-template-columns: 1fr; }
+      .feature-visual { min-height: 400px; order: -1; }
+      .browser { width: 86%; left: 7%; top: 10%; }
+      .work-card { grid-column: 1 / -1; }
+      .trio, .pivot-grid { grid-template-columns: 1fr; }
+      .who { grid-template-columns: repeat(2, 1fr); }
+      .s-head { grid-template-columns: 1fr; }
+      .s-intro { justify-self: start; }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .container { width: calc(100% - 32px); }
+      .nav { padding-left: 14px; }
+      .nav-logo .name { display: none; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .feature-visual { min-height: 300px; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .who { grid-template-columns: 1fr; }
+      .road { grid-template-columns: 1fr; gap: 36px; }
+      .road::before { top: 34px; bottom: 34px; left: 34px; right: auto; width: 3px; height: auto; background: linear-gradient(180deg, var(--magenta), var(--amber), var(--blue)); }
+      .step { display: grid; grid-template-columns: 70px 1fr; gap: 0 20px; }
+      .step-node { margin-bottom: 0; grid-row: span 3; }
+      .work-body { padding: 24px; }
+      .cta { border-radius: 32px; }
+      .spot { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ───────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo" aria-label="Frédéric Hitier, retour en haut">
+    <span class="mark" aria-hidden="true">FH<img src="images/avatar.jpg" alt="" width="76" height="76" onerror="this.remove()"></span>
+    <span class="name">Frédéric Hitier</span>
+  </a>
+  <nav aria-label="Sections">
+    <ul class="nav-links">
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#terrain">Parcours</a></li>
+      <li><a href="#pivot">Pivot IA</a></li>
+      <li><a href="#certifs">Certifications</a></li>
+      <li><a href="#objectif">Objectif</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="nav-cta">Me contacter</a>
+</header>
+
+<main id="top">
+
+<!-- ── Hero ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="beams" aria-hidden="true">
+    <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+  </div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <div class="container">
+    <p class="eyebrow reveal"><span class="live" aria-hidden="true"></span>Ouvert aux opportunités · 2026</p>
+
+    <h1 class="reveal d1">
+      30 ans de régie.
+      <span class="l2 grad-text">Désormais, j'automatise.</span>
+    </h1>
+
+    <p class="hero-sub reveal d2">
+      Technicien audiovisuel senior — <strong>image, son, lumière</strong> — en transition
+      vers l'automatisation, le web et l'ingénierie IA. Trente ans à faire tourner des
+      systèmes complexes en direct, sans droit à l'erreur.
+    </p>
+
+    <div class="hero-actions reveal d3">
+      <a href="#realisations" class="btn btn-primary">
+        Voir mes réalisations
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost">Me contacter</a>
+    </div>
+
+    <div class="stats reveal d4" id="stats">
+      <div class="stat"><div class="stat-num" data-count="30">30</div><div class="stat-label">années de terrain</div></div>
+      <div class="stat"><div class="stat-num" data-count="3">3</div><div class="stat-label">métiers : image, son, lumière</div></div>
+      <div class="stat"><div class="stat-num" data-count="6">6</div><div class="stat-label">certifications obtenues</div></div>
+      <div class="stat"><div class="stat-num" data-count="100">100<small>/100</small></div><div class="stat-label">Lighthouse sur Vaugrenelle</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Bandeau ───────────────────────────────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item">Allen &amp; Heath</span>
+    <span class="marquee-item">ChamSys MQ50</span>
+    <span class="marquee-item">n8n</span>
+    <span class="marquee-item">Yamaha CL / QL</span>
+    <span class="marquee-item">Astro</span>
+    <span class="marquee-item">Enttec DMX</span>
+    <span class="marquee-item">Python</span>
+    <span class="marquee-item">Multi-caméras</span>
+    <span class="marquee-item">Agents IA</span>
+    <span class="marquee-item">Soundcraft Vi</span>
+    <span class="marquee-item">TypeScript</span>
+    <span class="marquee-item">Spectacle vivant</span>
+  </div>
+</div>
+
+<!-- ── Réalisations ──────────────────────────────────────────── -->
+<section class="block" id="realisations">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Réalisations</p>
+      <h2 class="s-title reveal d1">Le travail, <em>en vrai.</em></h2>
+      <p class="s-intro reveal d2">Des projets en ligne, mesurés et documentés. Cliquez pour les ouvrir en plein écran.</p>
+    </div>
+
+    <div class="work">
+
+      <article class="feature reveal">
+        <div class="feature-body">
+          <span class="tagline">Projet phare · Web</span>
+          <h3>Vaugrenelle, <em>la ville comme scène</em></h3>
+          <p>
+            Démonstrateur complet du portail d'une collectivité fictive : agenda, démarches en ligne,
+            réservation de matériel de régie, recherche. Conçu pour être <strong>rapide, accessible
+            et sobre</strong> — et chaque promesse est vérifiée par des tests automatiques.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>100</b><span>Lighthouse : performance, accessibilité, SEO</span></div>
+            <div class="metric"><b>0</b><span>erreur d'accessibilité sur 24 audits axe</span></div>
+            <div class="metric"><b>88</b><span>pages générées</span></div>
+            <div class="metric"><b>A</b><span>EcoIndex sur 18 pages sur 23</span></div>
+          </div>
+          <div class="chips">
+            <span class="chip">Astro</span><span class="chip">TypeScript</span><span class="chip">Playwright</span>
+            <span class="chip">WCAG 2.2 AA</span><span class="chip">Écoconception</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="https://hitierfred.github.io/vaugrenelle/" target="_blank" rel="noopener">
+              Voir le site
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/HitierFred/vaugrenelle" target="_blank" rel="noopener">Voir le code</a>
+          </div>
+        </div>
+        <a class="feature-visual" href="https://hitierfred.github.io/vaugrenelle/" target="_blank" rel="noopener" aria-label="Ouvrir le site Vaugrenelle">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="url">hitierfred.github.io/vaugrenelle</span></div>
+            <img src="images/vaugrenelle.jpg" alt="Page d'accueil du site Vaugrenelle sur ordinateur" width="1440" height="900" loading="lazy">
+          </div>
+          <div class="phone">
+            <img src="images/vaugrenelle-mobile.jpg" alt="Le site Vaugrenelle sur téléphone" width="390" height="844" loading="lazy">
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-thumb" href="https://expressorapido.fr/" target="_blank" rel="noopener" aria-label="Ouvrir le site Expresso Rapido">
+          <img src="images/expressorapido.jpg" alt="Page d'accueil du site Expresso Rapido" width="1440" height="900" loading="lazy">
+        </a>
+        <div class="work-body">
+          <span class="work-kicker" style="color:#e2550f">Création · Image</span>
+          <h3>Expresso Rapido</h3>
+          <p>Mon univers artistique : peintures, dessins, photographies et vidéos, avec une boutique en ligne. L'œil de l'image au service du contenu web.</p>
+          <div class="chips"><span class="chip">Direction artistique</span><span class="chip">Photo &amp; vidéo</span><span class="chip">Boutique en ligne</span></div>
+          <div class="card-actions">
+            <a class="btn btn-ghost" href="https://expressorapido.fr/" target="_blank" rel="noopener">
+              Voir le site
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card reveal d1">
+        <a class="work-thumb" href="https://github.com/HitierFred" target="_blank" rel="noopener" aria-label="Ouvrir mon profil GitHub">
+          <div class="code-thumb">
+            <div class="repo-stack">
+              <div class="repo"><span class="dot" style="background:#3178c6"></span>vaugrenelle<small>TypeScript</small></div>
+              <div class="repo"><span class="dot" style="background:#e34c26"></span>hitierfred.github.io<small>HTML</small></div>
+              <div class="repo"><span class="dot" style="background:var(--magenta)"></span>prochain projet<small>n8n · IA</small></div>
+            </div>
+          </div>
+        </a>
+        <div class="work-body">
+          <span class="work-kicker" style="color:var(--blue)">Code · Open source</span>
+          <h3>Sur GitHub</h3>
+          <p>Le code source de mes projets, leur historique et leur documentation : cahier des charges, décisions techniques, audits datés.</p>
+          <div class="chips"><span class="chip">Git</span><span class="chip">Tests automatisés</span><span class="chip">Documentation</span></div>
+          <div class="card-actions">
+            <a class="btn btn-ghost" href="https://github.com/HitierFred" target="_blank" rel="noopener">
+              Voir mon GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 30 ans de terrain ─────────────────────────────────────── -->
+<section class="block" id="terrain" style="padding-top:0">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Parcours</p>
+      <h2 class="s-title reveal d1">30 ans <em>de terrain</em></h2>
+      <p class="s-intro reveal d2">Trois régies, un même réflexe : comprendre le signal de bout en bout, et que tout fonctionne au moment où le rideau se lève.</p>
+    </div>
+
+    <div class="trio">
+      <article class="gel image reveal">
+        <div class="gel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6.5" width="13.5" height="11" rx="2.5"/><path d="m15.5 10.5 5.2-3a.6.6 0 0 1 .8.5v8a.6.6 0 0 1-.8.5l-5.2-3"/><circle class="fill" cx="5.5" cy="9.75" r="1"/></svg></div>
+        <p class="gel-sub">Image &amp; vidéo</p>
+        <h3>Régie image &amp; prises de vue</h3>
+        <p>Prises de vue multi-caméras, cadrage et éclairage plateau. Mélangeurs vidéo en direct, gestion du signal de la source à la diffusion, en temps réel.</p>
+        <div class="chips"><span class="chip">Caméra</span><span class="chip">Mélangeur vidéo</span><span class="chip">Multi-cam</span><span class="chip">Live</span></div>
+      </article>
+      <article class="gel son reveal d1">
+        <div class="gel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3v18M12 3v18M18 3v18"/><rect class="fill" x="3.5" y="12.5" width="5" height="3.5" rx="1.2"/><rect class="fill" x="9.5" y="6" width="5" height="3.5" rx="1.2"/><rect class="fill" x="15.5" y="9.5" width="5" height="3.5" rx="1.2"/></svg></div>
+        <p class="gel-sub">Son live</p>
+        <h3>Régie son &amp; sonorisation</h3>
+        <p>Consoles numériques Allen &amp; Heath, Soundcraft et Yamaha. Balances, retours et coordination technique en spectacle vivant et événementiel.</p>
+        <div class="chips"><span class="chip">Allen &amp; Heath</span><span class="chip">Soundcraft</span><span class="chip">Yamaha</span><span class="chip">Sonorisation</span></div>
+      </article>
+      <article class="gel lum reveal d2">
+        <div class="gel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.8 8.2 9.6 4.4l3.2 5.8-6.8 3.8z"/><path d="M7.2 13.3 6 20.5M3.5 20.5h5"/><path d="M14.5 6.5 20.5 4M15.2 9.6h6.3M14.6 12.7l5.6 2.8"/></svg></div>
+        <p class="gel-sub">Lumière</p>
+        <h3>Régie lumière &amp; DMX</h3>
+        <p>Programmation et conduite de shows sur Light Commander et ChamSys MQ50. Interfaçage DMX via Enttec, scénographies complexes, coordination plateau.</p>
+        <div class="chips"><span class="chip">ChamSys MQ50</span><span class="chip">Light Commander</span><span class="chip">DMX512</span><span class="chip">Show design</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pivot IA ──────────────────────────────────────────────── -->
+<section class="block pivot" id="pivot">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Pivot IA</p>
+      <h2 class="s-title reveal d1">Du signal vidéo <em>au pipeline de données</em></h2>
+    </div>
+
+    <div class="pivot-grid">
+      <div class="pivot-text">
+        <blockquote class="quote reveal">
+          Un technicien qui ne lit pas le signal qu'il manipule est un opérateur, pas un ingénieur.
+          <em>Le code, c'est la lecture du signal numérique. Et l'IA, c'est la régie de demain.</em>
+        </blockquote>
+        <p class="reveal">
+          Avant d'orchestrer des workflows d'automatisation, il faut comprendre les couches des
+          environnements numériques. Apprendre HTML, CSS et JavaScript, c'était d'abord apprendre
+          à <strong>lire les systèmes</strong>.
+        </p>
+        <p class="reveal">
+          L'arrivée des LLM n'est pas une rupture, c'est une continuité. Trente ans de régie, c'est
+          trente ans à <strong>orchestrer des flux complexes sous contrainte de temps réel</strong>.
+          L'automatisation par l'IA relève exactement du même métier.
+        </p>
+      </div>
+      <div class="skills">
+        <div class="skill-card reveal" style="--c:var(--blue)">
+          <h4>Web &amp; fondamentaux</h4>
+          <div class="chips">
+            <span class="chip">HTML5</span><span class="chip">CSS Grid / Flex</span><span class="chip">JavaScript ES6+</span>
+            <span class="chip">TypeScript</span><span class="chip">Astro</span><span class="chip">APIs REST</span>
+            <span class="chip">JSON</span><span class="chip">Git</span><span class="chip">Accessibilité</span>
+          </div>
+        </div>
+        <div class="skill-card reveal d1" style="--c:var(--magenta)">
+          <h4>IA &amp; automatisation</h4>
+          <div class="chips">
+            <span class="chip">n8n workflows</span><span class="chip">Prompt engineering</span><span class="chip">Agents LLM</span>
+            <span class="chip">RAG</span><span class="chip">Python</span><span class="chip">Data pipelines</span>
+            <span class="chip">HubSpot CRM</span><span class="chip">Google Analytics 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Certifications ────────────────────────────────────────── -->
+<section class="block" id="certifs">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Certifications</p>
+      <h2 class="s-title reveal d1">Validations <em>techniques</em></h2>
+      <p class="s-intro reveal d2">Six certifications obtenues, une septième en cours.</p>
+    </div>
+
+    <div class="certs">
+      <div class="cert reveal">
+        <div class="cert-mark" style="--bg:#eef3fe">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.090 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.530 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">Google AI Essentials</div><div class="cert-issuer">Google · Coursera</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal d1">
+        <div class="cert-mark" style="--bg:#fff7e0">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="15" y="3" width="5" height="18" rx="2.5" fill="#F9AB00"/>
+            <rect x="8.5" y="9" width="5" height="12" rx="2.5" fill="#E37400"/>
+            <circle cx="4.5" cy="18.5" r="2.5" fill="#E37400"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">Google Analytics 4</div><div class="cert-issuer">Google · Skillshop</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal d2">
+        <div class="cert-mark" style="--bg:#fdeaf0">
+          <svg width="26" height="22" viewBox="0 0 40 32" aria-hidden="true">
+            <path d="M4 8 C4 4 7 1 11 1 C15 1 18 4 18 8 L18 24 C18 28 15 31 11 31 C7 31 4 28 4 24 Z" fill="#EA4B71"/>
+            <path d="M22 8 C22 4 25 1 29 1 C33 1 36 4 36 8 L36 24 C36 28 33 31 29 31 C25 31 22 28 22 24 Z" fill="#EA4B71" opacity=".65"/>
+            <circle cx="11" cy="16" r="4" fill="white" opacity=".9"/><circle cx="29" cy="16" r="4" fill="white" opacity=".6"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">n8n Automation — Niveau 1</div><div class="cert-issuer">n8n Academy</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal">
+        <div class="cert-mark" style="--bg:#fdeaf0">
+          <svg width="26" height="22" viewBox="0 0 40 32" aria-hidden="true">
+            <path d="M4 8 C4 4 7 1 11 1 C15 1 18 4 18 8 L18 24 C18 28 15 31 11 31 C7 31 4 28 4 24 Z" fill="#EA4B71"/>
+            <path d="M22 8 C22 4 25 1 29 1 C33 1 36 4 36 8 L36 24 C36 28 33 31 29 31 C25 31 22 28 22 24 Z" fill="#EA4B71" opacity=".65"/>
+            <circle cx="11" cy="16" r="4" fill="white" opacity=".9"/><circle cx="29" cy="16" r="4" fill="white" opacity=".6"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">n8n Automation — Niveau 2</div><div class="cert-issuer">n8n Academy</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal d1">
+        <div class="cert-mark" style="--bg:#fff0eb">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#FF7A59" d="M18.164 7.93A6.002 6.002 0 0015 6.17V4.5a1.5 1.5 0 000-3h-1a1.5 1.5 0 000 3v1.67A6.002 6.002 0 009 12a6 6 0 1010.5-4.07zM12 16a3 3 0 110-6 3 3 0 010 6z"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">HubSpot Inbound Marketing</div><div class="cert-issuer">HubSpot Academy</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal d2">
+        <div class="cert-mark" style="--bg:#f1f0ee">
+          <svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true">
+            <path d="M2 2 L2 20 L6 20 L6 8 L12 20 L16 20 L16 2 L12 2 L12 14 L6 2 Z" fill="#15131c"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">Notion Workspace</div><div class="cert-issuer">Notion Academy</div></div>
+        <span class="badge done">CERTIFIÉ</span>
+      </div>
+
+      <div class="cert reveal">
+        <div class="cert-mark" style="--bg:#eaf1f8">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#3776AB" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.031v-2.867s-.109-3.404 3.35-3.404h5.769s3.24.052 3.24-3.131V3.19S18.28 0 11.914 0zm-3.21 1.843a1.046 1.046 0 110 2.093 1.046 1.046 0 010-2.093z"/>
+            <path fill="#FFD43B" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.121S24 18.211 24 12.031c0-6.18-3.403-5.96-3.403-5.96h-2.031v2.867s.109 3.404-3.35 3.404H9.447s-3.24-.052-3.24 3.131V20.81S5.72 24 12.086 24zm3.21-1.843a1.046 1.046 0 110-2.093 1.046 1.046 0 010 2.093z"/>
+          </svg>
+        </div>
+        <div><div class="cert-name">Python — Fondamentaux &amp; Data</div><div class="cert-issuer">Formation continue</div></div>
+        <span class="badge wip">EN COURS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pour qui ──────────────────────────────────────────────── -->
+<section class="block" id="clients" style="padding-top:0">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Pour qui</p>
+      <h2 class="s-title reveal d1">L'automatisation <em>pour tous</em></h2>
+      <p class="s-intro reveal d2">L'IA n'est pas réservée aux grandes entreprises. L'enjeu : l'ouvrir à ceux qui en ont besoin sans avoir le temps de s'y former.</p>
+    </div>
+    <div class="who">
+      <div class="who-card c-mag reveal"><div class="who-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/><path d="M19 3.5v3M17.5 5h3"/></svg></div><h3>Particuliers</h3><p>Automatiser les tâches répétitives et l'administratif grâce à des workflows sur mesure.</p></div>
+      <div class="who-card c-amb reveal d1"><div class="who-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/><path d="M2 20h20"/><path d="m10 8.5-2 1.75L10 12M14 8.5l2 1.75L14 12"/></svg></div><h3>Freelances</h3><p>Facturation, relances, veille, reporting : libérer du temps pour le cœur du métier.</p></div>
+      <div class="who-card c-cyan reveal d2"><div class="who-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div><h3>Artisans</h3><p>Prise de rendez-vous, devis assistés par IA, suivi de chantier, communication client.</p></div>
+      <div class="who-card c-blue reveal d3"><div class="who-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="2"/><path d="M9.5 21.5v-4h5v4"/><path d="M8.5 6.5h1M14.5 6.5h1M8.5 10h1M14.5 10h1M8.5 13.5h1M14.5 13.5h1"/></svg></div><h3>PME</h3><p>Flux métier, intégration CRM, traitement des données, agents IA à l'échelle de l'entreprise.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feuille de route ──────────────────────────────────────── -->
+<section class="block" id="objectif" style="padding-top:0">
+  <div class="container">
+    <div class="s-head">
+      <p class="s-kicker reveal">Objectif</p>
+      <h2 class="s-title reveal d1">Feuille <em>de route</em></h2>
+      <p class="s-intro reveal d2">Pas un changement de secteur : le transfert d'une compétence — <strong>maîtriser des systèmes complexes sous contrainte</strong> — vers un nouveau médium.</p>
+    </div>
+    <div class="road reveal">
+      <div class="step"><div class="step-node">01</div><p class="step-tag">Court terme</p><h3>Spécialiste automatisation</h3><p>Intégration n8n, orchestration d'API, automatisation des workflows métier.</p></div>
+      <div class="step"><div class="step-node">02</div><p class="step-tag">Moyen terme</p><h3>Data scientist appliqué</h3><p>Pipelines de données, analyse, valorisation des flux d'information, tableaux de bord.</p></div>
+      <div class="step"><div class="step-node">03</div><p class="step-tag">Objectif</p><h3>LLM engineer</h3><p>Conception d'agents, RAG, fine-tuning, déploiement de systèmes LLM en production.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────────── -->
+<section class="block" id="contact" style="padding-top:0">
+  <div class="container">
+    <div class="cta reveal">
+      <span class="blob a" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span><span class="blob c" aria-hidden="true"></span>
+      <p class="eyebrow"><span class="live" aria-hidden="true"></span>Disponible · Poste ou mission</p>
+      <h2>Un poste, un projet ?<br><em class="grad-text">Parlons-en.</em></h2>
+      <p>Automatisation, web, IA — et trente ans d'expérience du direct. Le plus simple pour me joindre : LinkedIn.</p>
+      <div class="cta-actions">
+        <a class="btn btn-li" href="https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-h-5b451136/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Frédéric Hitier sur LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/HitierFred" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© 2026 Frédéric Hitier</span>
+    <span>Technicien senior · Automatisation &amp; IA · <a href="#top">Haut de page ↑</a></span>
+  </div>
+</footer>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Apparitions au défilement
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Compteurs animés
+  function count(el) {
+    const target = +el.dataset.count, suffix = el.querySelector('small')?.outerHTML || '';
+    if (reduce) return;
+    const t0 = performance.now(), dur = 1400;
+    const step = (now) => {
+      const p = Math.min((now - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+      el.innerHTML = Math.round(ease * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const stats = document.getElementById('stats');
+  new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('[data-count]').forEach(count); obs.disconnect(); } });
+  }, { threshold: 0.5 }).observe(stats);
+
+  // Bandeau : on double le contenu pour une boucle sans couture
+  const track = document.getElementById('marquee');
+  track.innerHTML += track.innerHTML;
+
+  // La poursuite suit la souris dans le hero
+  const spot = document.getElementById('spot'), hero = document.querySelector('.hero');
+  if (!reduce && matchMedia('(pointer: fine)').matches) {
+    let x = 0, y = 0, tx = 0, ty = 0, raf;
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    function loop() {
+      x += (tx - x) * .12; y += (ty - y) * .12;
+      spot.style.left = x + 'px'; spot.style.top = y + 'px';
+      raf = (Math.abs(tx - x) + Math.abs(ty - y) > .5) ? requestAnimationFrame(loop) : null;
+    }
+  }
+</script>
+</body>
+</html>
